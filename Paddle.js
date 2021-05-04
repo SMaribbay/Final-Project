@@ -2,16 +2,23 @@ class Paddle {
  
     constructor(x) {
         this.x = x;
-        this.y = height / 2;  window
+        this.y = height / 2;  
         this.height = 80;
         this.width = 20;
       this.isUp = false;
         this.isDown = false;
     }
-     
+       update() {
+      if (this.isUp) {
+        this.up();
+      } else if (this.isDown) {
+        this.down();
+      }
+    }
      
     display() {
         fill('#6A2AE5');
+      noStroke();
         rect(this.x, this.y, 20, 80);
     }
  up() {
