@@ -7,17 +7,17 @@ class Ball{
     }
      
      
-    update() {
-        // change direction if it hits the top or bottom 
+    update(playerScore, aiScore) {
+        // if it hits the top or bottom change direction
         if (this.y < this.r || this.y > height - this.r) {
             this.ySpeed = -this.ySpeed;
         } 
-        // restart the game if it goes to the end of the sreen 
-        if (this.x<this.r){      
-          aiScore.increment();
-          this.reset();
-        } else if (this.x>width+this.r){
-          playerScore.increment();
+        // if it goes to the end of the sreen restart the game
+        if (this.x < this.r ) {
+          //aiScore.increment();
+        	this.reset();
+        } else if (this.x > width + this.r) {
+          //playerScore.increment();
           this.reset();
         }
          
@@ -32,7 +32,8 @@ class Ball{
          
         this.xSpeed = random(3, 4);
          
-        let isLeft = random(1) > .5;
+        // determines if it's going left or right
+        let isLeft = random(1) > 1/2;
         if (isLeft) {
             this.xSpeed = -this.xSpeed;
         } 
@@ -43,6 +44,4 @@ class Ball{
     display() {
         ellipse(this.x, this.y, this.r * 2, this.r * 2);
     }
-     
-     
 }
