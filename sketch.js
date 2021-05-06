@@ -6,9 +6,11 @@ let scoreAi;
 
 function setup() {
   createCanvas(634, 350);
+   ball = new Ball();
   paddlePlayer = new Paddle(26);
   paddleAi = new Paddle (width-48);
-  ball = new Ball();
+  scorePlayer = new Score(width/2-40);
+  scoreAi = new Score(width/2+40);
 }
  
 function draw() {
@@ -31,17 +33,17 @@ function draw() {
   ball.update(scorePlayer,scoreAi);
   ball.display();
   
-  //ball.hitPlayer(paddlePlayer);
-  //ball.hitAi(paddleAi);
+  ball.hitPlayer(paddlePlayer);
+  ball.hitAi(paddleAi);
   
   stroke(0);
   line(width/2, 0, width/2, height);
   
-  //scorePlayer.display();
-  //scoreAi.display();
+  scorePlayer.display();
+  scoreAi.display();
 
-     ball.update(); // call the update function within ball
-    ball.display();
+     //ball.update(); // call the update function within ball
+    //ball.display();
   
 }
 function processAi(){
